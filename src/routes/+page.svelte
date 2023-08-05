@@ -74,8 +74,8 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>{$t('title')}</title>
+	<meta name="description" content="Sehasu counter" />
 </svelte:head>
 
 <section>
