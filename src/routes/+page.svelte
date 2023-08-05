@@ -124,7 +124,7 @@
 				</DataTable>
 			</Cell>
 			{#each res.body.videos as video}
-				<Cell span={3}>
+				<Cell spanDevices={{ desktop: 3, tablet: 4, phone: 4 }}>
 					<div class="card-display">
 						<div class="card-container">
 							<Card>
@@ -138,14 +138,15 @@
 										style="background-image: url(https://i.ytimg.com/vi/{video.id}/hq720.jpg)"
 									>
 										<MediaContent>
-											<div style="color: #000; position: absolute; bottom: 16px; left: 16px;" />
+											<div class="video-upload-date">
+												<span class="material-symbols-outlined">calendar_today</span
+												>{video.publishedAt}
+											</div>
 										</MediaContent>
 									</Media>
 									<Content class="mdc-typography--body2">
-										{video.title}<br /><br />
+										<strong>{video.title}</strong><br /><br />
 										<div class="video-infos">
-											<span class="material-symbols-outlined">calendar_today</span
-											>{video.publishedAt}<br />
 											<span class="material-symbols-outlined">visibility</span>{numberComma(
 												video.viewCount
 											)} views<br /><span class="material-symbols-outlined">favorite</span
@@ -176,12 +177,30 @@
 	h1 {
 		width: 100%;
 	}
+
 	.material-symbols-outlined {
 		vertical-align: middle;
 		margin-right: 0.5rem;
 		font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 48;
 	}
+
 	.video-infos {
 		line-height: 1rem;
+	}
+
+	.video-upload-date {
+		color: #fff;
+		position: absolute;
+		bottom: 16px;
+		right: 16px;
+		background-color: #0c0c0c6f;
+		text-align: center;
+		padding: 0.3rem;
+		border-radius: 0.5rem;
+	}
+
+	* :global(.mdc-layout-grid__cell--span-3) {
+		justify-self: center;
+		align-self: center;
 	}
 </style>
