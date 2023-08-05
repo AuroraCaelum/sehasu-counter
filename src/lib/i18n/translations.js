@@ -35,7 +35,7 @@ export default {
     },
     ko: {
         "title": "세하스 재생수 카운터",
-        "counter.pre": "까지<br />세하스의 누적 조회수는 ",
+        "counter.pre": " 기준<br />세하스의 누적 조회수는 ",
         "counter.suf": "회 입니다.",
         "view": " 조회수",
         "like": " 좋아요",

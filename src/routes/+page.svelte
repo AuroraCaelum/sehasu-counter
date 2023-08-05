@@ -67,7 +67,9 @@
 		const day = d.getDate();
 		const hours = d.getHours();
 		const minutes = d.getMinutes();
-		return `${year}-${month}-${day} ${hours}:${minutes}:00`;
+		return `${year}-${('00' + month.toString()).slice(-2)}-${('00' + day.toString()).slice(-2)} ${(
+			'00' + hours.toString()
+		).slice(-2)}:${('00' + minutes.toString()).slice(-2)}:00`;
 	}
 </script>
 
