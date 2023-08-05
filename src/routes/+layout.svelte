@@ -1,4 +1,5 @@
 <script>
+	import { t, locale, locales } from '$lib/i18n/i18n';
 	import './styles.css';
 </script>
 
@@ -8,7 +9,17 @@
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<div>
+			{@html $t('footer.info')}
+		</div>
+		<div class="issue">
+			<a href="https://github.com/AuroraCaelum/TakasakiInfo" style="color: rgb(100, 100, 100);"
+				>Report Issue</a
+			>
+		</div>
+		<div>
+			{@html $t('footer.disclaimer')}
+		</div>
 	</footer>
 </div>
 

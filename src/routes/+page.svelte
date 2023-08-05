@@ -1,39 +1,27 @@
 <script lang="ts">
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import Card, {
-		Content,
-		PrimaryAction,
-		Media,
-		MediaContent,
-		Actions,
-		ActionButtons,
-		ActionIcons
-	} from '@smui/card';
+	import { t, locale, locales } from '$lib/i18n/i18n';
+	import Card, { Content, PrimaryAction, Media, MediaContent } from '@smui/card';
+	import DataTable, { Head, Body, Row, Cell as DataCell, SortValue } from '@smui/data-table';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
+	import getUserLocale from 'get-user-locale';
 
-	// type Video = {
-	// 	title: string;
-	// 	episode: number;
-	// 	id: string;
-	// 	viewCount: string;
-	// 	likeCount: string;
-	// 	commentCount: string;
-	// };
+	var userLocale = getUserLocale();
+	$locale = userLocale.startsWith('ja') ? 'ja' : userLocale.startsWith('ko') ? 'ko' : 'en';
 
-	// type Stats = {
-	// 	DBtime: string;
-	// 	viewSum: number;
-	// 	likeSum: number;
-	// 	commentSum: number;
-	// 	videos: Array<Video>;
-	// };
-
-	// type GetCounts = {
-	// 	body: Stats;
-	// };
-
-	// var count = 0;
+	type Steps = {
+		number: number;
+		start: string;
+		success: string;
+		end: string;
+	};
+	let items: Steps[] = [
+		{
+			number: 1,
+			start: '2023-05-02',
+			success: '2023-07-07',
+			end: '2023-08-04'
+		}
+	];
 
 	let count = 0;
 
@@ -54,9 +42,6 @@
 			}
 
 			const result = await res.json();
-			//console.log(JSON.stringify(result, null, 4));
-			//count = result.body.viewSum;
-			//console.log(count);
 			return result;
 		} catch (error) {
 			if (error instanceof Error) {
@@ -75,17 +60,15 @@
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	}
 
-	// let data: any = getStats();
-	// async function getPosts() {
-	// 	// 원격지 데이터를 fetch로 가져오기
-	// 	const res = await fetch(
-	// 		'https://2afv7fmrj9.execute-api.ap-northeast-2.amazonaws.com/sehasu/getsehasustats?mode=current'
-	// 	);
-	// 	const json = await res.json(); // fetch 결과를 JSON 객체로 변환
-	// 	count = json.body.viewSum;
-	// 	return json; // JSON 객체 반환
-	// }
-	// let promisePosts = getPosts();
+	function getDateString(date: number) {
+		const d = new Date(date);
+		const year = d.getFullYear();
+		const month = d.getMonth() + 1;
+		const day = d.getDate();
+		const hours = d.getHours();
+		const minutes = d.getMinutes();
+		return `${year}-${month}-${day} ${hours}:${minutes}:00`;
+	}
 </script>
 
 <svelte:head>
@@ -96,16 +79,47 @@
 <section>
 	<LayoutGrid>
 		{#await data}
-			Loading...
+			<h1>Loading...</h1>
 		{:then res}
 			<Cell
 				span={12}
 				style="display: flex; justify-content: center; align-items: center; margin-top: 2rem; margin-bottom: 2rem;"
 			>
 				<h1>
-					By {new Date(res.body.DBtime * 1000)},<br />Se-node Hasunosora! has accumulated
-					<strong>{numberComma(res.body.viewSum)}</strong> views.
+					{#if $locale === 'en'}
+						By {getDateString(res.body.DBtime * 1000)}{@html $t('counter.pre')}<strong
+							>{numberComma(res.body.viewSum)}</strong
+						>{@html $t('counter.suf')}
+					{:else}
+						{getDateString(res.body.DBtime * 1000)}{@html $t('counter.pre')}<strong
+							>{numberComma(res.body.viewSum)}</strong
+						>{@html $t('counter.suf')}
+					{/if}
 				</h1>
+			</Cell>
+			<Cell span={12}>
+				<DataTable table$aria-label="User list" style="width: 100%;">
+					<Head>
+						<Row>
+							<DataCell>{$t('step.number')}</DataCell>
+							<DataCell style="width: 100%;">{$t('step.name')}</DataCell>
+							<DataCell>{$t('step.start')}</DataCell>
+							<DataCell>{$t('step.success')}</DataCell>
+							<DataCell>{$t('step.end')}</DataCell>
+						</Row>
+					</Head>
+					<Body>
+						{#each items as item (item.number)}
+							<Row>
+								<DataCell>{item.number}</DataCell>
+								<DataCell>{@html $t(`step.${item.number}`)}</DataCell>
+								<DataCell>{item.start}</DataCell>
+								<DataCell>{item.success}</DataCell>
+								<DataCell>{item.end}</DataCell>
+							</Row>
+						{/each}
+					</Body>
+				</DataTable>
 			</Cell>
 			{#each res.body.videos as video}
 				<Cell span={3}>
@@ -126,10 +140,17 @@
 										</MediaContent>
 									</Media>
 									<Content class="mdc-typography--body2">
-										{video.title}<br /><br />{numberComma(video.viewCount)} views / {numberComma(
-											video.likeCount
-										)} likes<br />{numberComma(video.commentCount)}
-										comments
+										{video.title}<br /><br />
+										<div class="video-infos">
+											<span class="material-symbols-outlined">calendar_today</span
+											>{video.publishedAt}<br />
+											<span class="material-symbols-outlined">visibility</span>{numberComma(
+												video.viewCount
+											)} views<br /><span class="material-symbols-outlined">favorite</span
+											>{numberComma(video.likeCount)} likes<br /><span
+												class="material-symbols-outlined">comment</span
+											>{numberComma(video.commentCount)} comments
+										</div>
 									</Content>
 								</PrimaryAction>
 							</Card>
@@ -153,20 +174,12 @@
 	h1 {
 		width: 100%;
 	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	.material-symbols-outlined {
+		vertical-align: middle;
+		margin-right: 0.5rem;
+		font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 48;
 	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.video-infos {
+		line-height: 1rem;
 	}
 </style>
