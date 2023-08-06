@@ -17,7 +17,7 @@ export default {
         "step.1": "With a cumulative total of over <strong>500,000</strong> views, \"Corner Logo to be Created!\"<br /><small>累計視聴数50万回再生突破で「コーナーロゴの制作が決定！」</small>",
     },
     ja: {
-        "title": "せーはす再生回数カウンター",
+        "title": "せーはす累計視聴数カウンター",
         "counter.pre": "までの<br /><strong>せーはす</strong>の累計視聴数は ",
         "counter.suf": "回です。",
         "view": " views",
