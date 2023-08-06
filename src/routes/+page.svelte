@@ -6,10 +6,8 @@
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import getUserLocale from 'get-user-locale';
 
-	var userLocale = getUserLocale();
+	let userLocale = getUserLocale();
 	$locale = userLocale.startsWith('ja') ? 'ja' : userLocale.startsWith('ko') ? 'ko' : 'en';
-
-	console.log(import.meta.env.VITE_API_URL);
 
 	async function getStats() {
 		try {

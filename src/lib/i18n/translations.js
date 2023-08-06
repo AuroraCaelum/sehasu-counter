@@ -27,7 +27,7 @@ export default {
         "step.start": "開始日",
         "step.success": "達成日",
         "step.end": "終了日",
-        "footer.ifEff": "もしエラーで視聴数や動画が表示されない場合は、ページを更新してください。",
+        "footer.ifErr": "もしエラーで視聴数や動画が表示されない場合は、ページを更新してください。",
         "footer.info": 'DB & Webpage Made by <a href="https://github.com/AuroraCaelum/" target="_blank">@AuroraCaelum</a>',
         "footer.disclaimer": '<br><small>せーので！はすのそら！は <b><small>©プロジェクトラブライブ！蓮ノ空女学院スクールアイドルクラブ</small></b>とその権利者であるSUNRISE、Bandai Namco Music Live Inc., and ODD No.のブランドです。<br />このサイトはファンメイドです。</small>',
     },
