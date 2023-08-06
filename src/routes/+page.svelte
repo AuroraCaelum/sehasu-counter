@@ -1,4 +1,5 @@
 <script lang="ts">
+	import steps from '$lib/data/steps.json';
 	import { t, locale, locales } from '$lib/i18n/i18n';
 	import Card, { Content, PrimaryAction, Media, MediaContent } from '@smui/card';
 	import DataTable, { Head, Body, Row, Cell as DataCell, SortValue } from '@smui/data-table';
@@ -8,34 +9,16 @@
 	var userLocale = getUserLocale();
 	$locale = userLocale.startsWith('ja') ? 'ja' : userLocale.startsWith('ko') ? 'ko' : 'en';
 
-	type Steps = {
-		number: number;
-		start: string;
-		success: string;
-		end: string;
-	};
-	let items: Steps[] = [
-		{
-			number: 1,
-			start: '2023-05-02',
-			success: '2023-07-07',
-			end: '2023-08-04'
-		}
-	];
-
-	let count = 0;
+	console.log(import.meta.env.VITE_API_URL);
 
 	async function getStats() {
 		try {
-			const res = await fetch(
-				'https://2afv7fmrj9.execute-api.ap-northeast-2.amazonaws.com/sehasu/getsehasustats?mode=current',
-				{
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
+			const res = await fetch(import.meta.env.VITE_API_URL, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
 				}
-			);
+			});
 
 			if (!res.ok) {
 				throw new Error('Error! ' + res.status);
@@ -111,13 +94,19 @@
 						</Row>
 					</Head>
 					<Body>
-						{#each items as item (item.number)}
+						{#each steps as step (step.number)}
 							<Row>
-								<DataCell>{item.number}</DataCell>
-								<DataCell>{@html $t(`step.${item.number}`)}</DataCell>
-								<DataCell>{item.start}</DataCell>
-								<DataCell>{item.success}</DataCell>
-								<DataCell>{item.end}</DataCell>
+								<DataCell>{step.number}</DataCell>
+								<DataCell
+									>{#if $locale === 'ja'}
+										{@html step.name['ja']}
+									{:else if $locale === 'ko' || $locale === 'en'}
+										{@html step.name[$locale]}<br /><small>{@html step.name['ja']}</small>
+									{/if}</DataCell
+								>
+								<DataCell>{step.start}</DataCell>
+								<DataCell>{step.success}</DataCell>
+								<DataCell>{step.end}</DataCell>
 							</Row>
 						{/each}
 					</Body>

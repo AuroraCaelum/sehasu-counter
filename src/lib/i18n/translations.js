@@ -12,10 +12,8 @@ export default {
         "step.success": "Success Date",
         "step.end": "Ending Date",
         "footer.ifErr": "If the view count or video is not displayed due to an error, please refresh the page.",
-        "footer.info": 'Webpage Made by <a href="https://github.com/AuroraCaelum/">@AuroraCaelum</a>',
-        "footer.disclaimer": '<br><br><small>Se-node Hasunosora! is a trademark of <b><small>©Project Love Live! Hasunosora Girls School Idol Club</small></b>and its rights holders SUNRISE, Bandai Namco Music Live Inc., and ODD No.,.</small>',
-        "footer.report": 'Report Issue',
-        "step.1": "With a cumulative total of over <strong>500,000</strong> views, \"Corner Logo to be Created!\"<br /><small>累計視聴数50万回再生突破で「コーナーロゴの制作が決定！」</small>",
+        "footer.info": 'DB & Webpage Made by <a href="https://github.com/AuroraCaelum/" target="_blank">@AuroraCaelum</a>',
+        "footer.disclaimer": '<br><small>Se-node Hasunosora!(せーので！はすのそら！) is a trademark of <b><small>©Project Love Live! Hasunosora Girls School Idol Club</small></b>and its rights holders SUNRISE, Bandai Namco Music Live Inc., and ODD No.,.<br />This is a fanmade website.</small>',
     },
     ja: {
         "title": "せーはす累計視聴数カウンター",
@@ -30,10 +28,8 @@ export default {
         "step.success": "達成日",
         "step.end": "終了日",
         "footer.ifEff": "もしエラーで視聴数や動画が表示されない場合は、ページを更新してください。",
-        "footer.info": 'Webpage Made by <a href="https://github.com/AuroraCaelum/">@AuroraCaelum</a>',
-        "footer.disclaimer": '<br><br><small>せーので！はすのそら！は <b><small>©プロジェクトラブライブ！蓮ノ空女学院スクールアイドルクラブ</small></b>とその権利者であるSUNRISE、Bandai Namco Music Live Inc., and ODD No.のブランドです。</small>',
-        "footer.report": 'Report Issue',
-        "step.1": "累計視聴数<strong>50万回</strong>再生突破で「コーナーロゴの制作が決定！」",
+        "footer.info": 'DB & Webpage Made by <a href="https://github.com/AuroraCaelum/" target="_blank">@AuroraCaelum</a>',
+        "footer.disclaimer": '<br><small>せーので！はすのそら！は <b><small>©プロジェクトラブライブ！蓮ノ空女学院スクールアイドルクラブ</small></b>とその権利者であるSUNRISE、Bandai Namco Music Live Inc., and ODD No.のブランドです。<br />このサイトはファンメイドです。</small>',
     },
     ko: {
         "title": "세하스 재생수 카운터",
@@ -48,9 +44,7 @@ export default {
         "step.success": "달성일",
         "step.end": "종료일",
         "footer.ifErr": "만약 조회수나 동영상이 표시되지 않을 경우, 페이지를 새로고침 해주세요.",
-        "footer.info": 'DB & Webpage Made by <a href="https://github.com/AuroraCaelum/">@AuroraCaelum</a>',
-        "footer.disclaimer": '<br><br><small>세-노데! 하스노소라!(せーので！はすのそら！)는 <b><small>©プロジェクトラブライブ！蓮ノ空女学院スクールアイドルクラブ</small></b>와 그 권리사인 SUNRISE, Bandai Namco Music Live Inc., ODD No.의 브랜드입니다.</small>',
-        "footer.report": 'Report Issue',
-        "step.1": "누적 조회수 <strong>50만</strong> 뷰 돌파로 \"코너 로고 제작 결정!\"<br /><small>累計視聴数50万回再生突破で「コーナーロゴの制作が決定！」</small>",
+        "footer.info": 'DB & Webpage Made by <a href="https://github.com/AuroraCaelum/" target="_blank">@AuroraCaelum</a>',
+        "footer.disclaimer": '<br><small>세-노데! 하스노소라!(せーので！はすのそら！)는 <b><small>©プロジェクトラブライブ！蓮ノ空女学院スクールアイドルクラブ</small></b>와 그 권리사인 SUNRISE, Bandai Namco Music Live Inc., ODD No.의 브랜드입니다.<br />이 사이트는 팬메이드입니다.</small>',
     }
 };
