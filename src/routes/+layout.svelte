@@ -14,6 +14,9 @@
 
 	<footer>
 		<div>
+			{@html $t('footer.ifErr')}
+		</div>
+		<div>
 			{@html $t('footer.info')}
 		</div>
 		<div>
