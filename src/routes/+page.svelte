@@ -81,7 +81,7 @@
 				</h1>
 			</Cell>
 			<Cell span={12}>
-				<DataTable table$aria-label="User list" style="width: 100%;">
+				<DataTable table$aria-label="Steps List" style="width: 100%;">
 					<Head>
 						<Row>
 							<DataCell>{$t('step.number')}</DataCell>
@@ -110,7 +110,7 @@
 					</Body>
 				</DataTable>
 			</Cell>
-			{#each res.body.videos as video}
+			{#each res.body.videos.reverse() as video}
 				<Cell spanDevices={{ desktop: 3, tablet: 4, phone: 4 }}>
 					<div class="card-display">
 						<div class="card-container">
@@ -122,7 +122,7 @@
 									<Media
 										class="card-media-16x9"
 										aspectRatio="16x9"
-										style="background-image: url(https://i.ytimg.com/vi/{video.id}/hq720.jpg)"
+										style="background-image: url(https://i.ytimg.com/vi/{video.id}/sddefault.jpg)"
 									>
 										<MediaContent>
 											<div class="video-upload-date">
