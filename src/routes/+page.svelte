@@ -132,7 +132,12 @@
 										</MediaContent>
 									</Media>
 									<Content class="mdc-typography--body2">
-										<strong>{video.title}</strong><br /><br />
+										<strong
+											>{video.title['ja']}
+											{#if $locale === 'ko' || $locale === 'en'}
+												<br /><small>{video.title[$locale]}</small>
+											{/if}
+										</strong><br /><br />
 										<div class="video-infos">
 											<span class="material-symbols-outlined">visibility</span>{numberComma(
 												video.viewCount

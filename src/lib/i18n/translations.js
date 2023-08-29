@@ -1,7 +1,7 @@
 export default {
     en: {
         "title": "Se-hasu View Counter",
-        "counter.pre": ",<br /><strong>Se-node Hasunosora!</strong> has accumulated <strong>",
+        "counter.pre": ",<br /><strong>Se-no de! Hasu no sora!</strong> has accumulated <strong>",
         "counter.suf": "</strong> views.",
         "view": " views",
         "like": " likes",
@@ -13,11 +13,11 @@ export default {
         "step.end": "Ending Date",
         "footer.ifErr": "If the view count or video is not displayed due to an error, please refresh the page.",
         "footer.info": 'DB & Webpage Made by <a href="https://github.com/AuroraCaelum/" target="_blank">@AuroraCaelum</a>',
-        "footer.disclaimer": '<br><small>Se-node Hasunosora!(せーので！はすのそら！) is a trademark of <b><small>©Project Love Live! Hasunosora Girls School Idol Club</small></b> and its rights holders SUNRISE, Bandai Namco Music Live Inc., and ODD No.,.<br />This is a fanmade website.</small>',
+        "footer.disclaimer": '<br><small>Se-no de! Hasu no sora!(せーので！はすのそら！) is a trademark of <b><small>©Project Love Live! Hasunosora Girls School Idol Club</small></b> and its rights holders SUNRISE, Bandai Namco Music Live Inc., and ODD No.,.<br />This is a fanmade website.</small>',
     },
     ja: {
         "title": "せーはす累計視聴数カウンター",
-        "counter.pre": "までの<br /><strong>せーはす</strong>の累計視聴数は ",
+        "counter.pre": "までの<br /><strong>せーので！はすのそら！</strong>の累計視聴数は ",
         "counter.suf": "回です。",
         "view": " views",
         "like": " likes",
@@ -33,7 +33,7 @@ export default {
     },
     ko: {
         "title": "세하스 재생수 카운터",
-        "counter.pre": " 기준<br />세하스의 누적 조회수는 ",
+        "counter.pre": " 기준<br /><strong>하나 둘에! 하스노소라!</strong>의 누적 조회수는 ",
         "counter.suf": "회 입니다.",
         "view": " 조회수",
         "like": " 좋아요",
