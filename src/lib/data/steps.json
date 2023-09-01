@@ -9,5 +9,16 @@
         "start": "2023-05-02",
         "success": "2023-07-07",
         "end": "2023-08-04"
+    },
+    {
+        "number": 2,
+        "name": {
+            "en": "Produce the theme song for Se-hasu with a total of <strong>1.2 million</strong> views on Se-hasu video!",
+            "ja": "せーはす動画累計想聽對<strong>120万回</strong>再生でせーはすテーマソング制作！",
+            "ko": "세하스 동영상 누적 조회수 <strong>120만회</strong>가 되면 세하스 테마송 제작!"
+        },
+        "start": "2023-09-01",
+        "success": "",
+        "end": ""
     }
 ]
