@@ -1,6 +1,7 @@
 <script lang="ts">
 	import steps from '$lib/data/steps.json';
 	import { t, locale, locales } from '$lib/i18n/i18n';
+	import predictionImg from '$lib/prediction.png';
 	import Card, { Content, PrimaryAction, Media, MediaContent } from '@smui/card';
 	import DataTable, { Head, Body, Row, Cell as DataCell, SortValue } from '@smui/data-table';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
@@ -73,7 +74,7 @@
 	>
 		<DialogContent id="sheet-content">
 			<IconButton action="close" class="material-symbols-outlined">close</IconButton>
-			<img src="/src/lib/prediction.png" alt="counter" width="100%" />
+			<img src={predictionImg} alt="counter" width="100%" />
 		</DialogContent>
 	</Dialog>
 
