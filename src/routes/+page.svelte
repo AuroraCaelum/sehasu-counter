@@ -4,10 +4,15 @@
 	import Card, { Content, PrimaryAction, Media, MediaContent } from '@smui/card';
 	import DataTable, { Head, Body, Row, Cell as DataCell, SortValue } from '@smui/data-table';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
+	import IconButton from '@smui/icon-button';
+	import Button, { Label, Icon } from '@smui/button';
+	import Dialog, { Content as DialogContent } from '@smui/dialog';
 	import getUserLocale from 'get-user-locale';
 
 	let userLocale = getUserLocale();
 	$locale = userLocale.startsWith('ja') ? 'ja' : userLocale.startsWith('ko') ? 'ko' : 'en';
+
+	let open = false;
 
 	async function getStats() {
 		try {
@@ -60,6 +65,18 @@
 </svelte:head>
 
 <section>
+	<Dialog
+		bind:open
+		sheet
+		aria-describedby="sheet-content"
+		surface$style="width: 900px; max-width: calc(100vw - 32px);"
+	>
+		<DialogContent id="sheet-content">
+			<IconButton action="close" class="material-symbols-outlined">close</IconButton>
+			<img src="/src/lib/prediction.png" alt="counter" width="100%" />
+		</DialogContent>
+	</Dialog>
+
 	<LayoutGrid>
 		{#await data}
 			<h1>Loading...</h1>
@@ -87,7 +104,7 @@
 							<DataCell>{$t('step.number')}</DataCell>
 							<DataCell style="width: 100%;">{$t('step.name')}</DataCell>
 							<DataCell>{$t('step.start')}</DataCell>
-							<DataCell>{$t('step.success')}</DataCell>
+							<DataCell>{@html $t('step.success')}</DataCell>
 							<DataCell>{$t('step.end')}</DataCell>
 						</Row>
 					</Head>
@@ -103,12 +120,18 @@
 									{/if}</DataCell
 								>
 								<DataCell>{step.start}</DataCell>
-								<DataCell>{step.success}</DataCell>
+								<DataCell>{@html step.success}</DataCell>
 								<DataCell>{step.end}</DataCell>
 							</Row>
 						{/each}
 					</Body>
 				</DataTable>
+				<div class="predict">
+					<Button on:click={() => (open = true)}
+						><Icon class="material-symbols-outlined">info</Icon><Label>{$t('detail')}</Label
+						></Button
+					>
+				</div>
 			</Cell>
 			{#each res.body.videos.reverse() as video}
 				<Cell spanDevices={{ desktop: 3, tablet: 4, phone: 4 }}>
@@ -194,5 +217,12 @@
 	* :global(.mdc-layout-grid__cell--span-3) {
 		justify-self: center;
 		align-self: center;
+	}
+
+	.predict {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 	}
 </style>
