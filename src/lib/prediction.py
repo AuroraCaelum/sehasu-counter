@@ -6,7 +6,8 @@ import math
 
 startingDate = datetime.datetime(2023, 8, 5)
 
-df = pd.read_csv("src/lib/results.csv")
+URL = "https://sehasu-counter.s3.ap-northeast-2.amazonaws.com/dailyCounts.csv"
+df = pd.read_csv(URL)
 
 X = df["date"]
 y = df["totalCount"]
