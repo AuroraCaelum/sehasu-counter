@@ -1,4 +1,5 @@
 <script>
+	import ogimage from '$lib/images/ogImage.png';
 	import { t, locale, locales } from '$lib/i18n/i18n';
 	import './styles.css';
 	import { dev } from '$app/environment';
@@ -7,6 +8,11 @@
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
+<meta property="og:title" content={$t('og.title')} />
+<meta property="og:url" content="https://sehasu-counter.vercel.app/" />
+<meta property="og:image" content={ogimage} />
+<meta property="og:image:alt" content="Sehasu Logo" />
+<meta property="og:description" content={$t('og.description')} />
 <div class="app">
 	<main>
 		<slot />
