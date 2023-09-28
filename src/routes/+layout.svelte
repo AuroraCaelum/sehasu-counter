@@ -30,6 +30,13 @@
 		<div>
 			{@html $t('footer.disclaimer')}
 		</div>
+		<div>
+			<!--カウンター画像からは配布サイトへリンクが設定されています。また、誤作動、誤表示の原因となりますのでコードの改変、改行は行わないで下さい。
+このコメント部分は削除して頂いても結構です。-->
+			<a href="https://www.free-counter.jp/"
+				><img src="https://www.f-counter.net/j/62/1695898520/" alt="アクセスカウンター" /></a
+			>
+		</div>
 	</footer>
 </div>
 
