@@ -4,6 +4,10 @@
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	import { MetaTags } from 'svelte-meta-tags';
+	import getUserLocale from 'get-user-locale';
+
+	let userLocale = getUserLocale();
+	$locale = userLocale.startsWith('ja') ? 'ja' : userLocale.startsWith('ko') ? 'ko' : 'en';
 
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
