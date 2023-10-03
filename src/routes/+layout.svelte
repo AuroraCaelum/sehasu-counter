@@ -3,12 +3,32 @@
 	import './styles.css';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
+	import { MetaTags } from 'svelte-meta-tags';
 
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-<meta property="og:title" content={$t('og.title')} />
-<meta property="og:description" content={$t('og.description')} />
+<MetaTags
+	title={$t('og.title')}
+	description={$t('og.description')}
+	openGraph={{
+		type: 'website',
+		url: 'https://sehasu-counter.vercel.app/',
+		title: $t('og.title'),
+		description: $t('og.description'),
+		images: [
+			{
+				url: 'https://sehasu-counter.s3.ap-northeast-2.amazonaws.com/sehasu-og-image.png',
+				alt: 'Sehasu Logo',
+				width: 1100,
+				height: 740,
+				type: 'image/png'
+			}
+		]
+	}}
+/>
+<!-- <meta property="og:title" content={$t('og.title')} />
+<meta property="og:description" content={$t('og.description')} /> -->
 <div class="app">
 	<main>
 		<slot />
