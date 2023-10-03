@@ -13,13 +13,13 @@
 </script>
 
 <MetaTags
-	title={$t('og.title')}
-	description={$t('og.description')}
+	title="Se-hasu View Counter"
+	description="Se-no de! Hasu no sora! View Counter"
 	openGraph={{
 		type: 'website',
 		url: 'https://sehasu-counter.vercel.app/',
-		title: $t('og.title'),
-		description: $t('og.description'),
+		title: 'Se-hasu View Counter',
+		description: 'Se-no de! Hasu no sora! View Counter',
 		images: [
 			{
 				url: 'https://sehasu-counter.s3.ap-northeast-2.amazonaws.com/sehasu-og-image.png',
