@@ -2,6 +2,7 @@
 	import steps from '$lib/data/steps.json';
 	import { t, locale, locales } from '$lib/i18n/i18n';
 	import predictionImg from '$lib/prediction.png';
+	import sehasuLogo from '$lib/images/sehasu-logo.png';
 	import Card, { Content, PrimaryAction, Media, MediaContent } from '@smui/card';
 	import DataTable, { Head, Body, Row, Cell as DataCell, SortValue } from '@smui/data-table';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
@@ -80,7 +81,12 @@
 
 	<LayoutGrid>
 		{#await data}
-			<h1>Loading...</h1>
+			<Cell
+				span={12}
+				style="display: flex; justify-content: center; align-items: center; margin-top: 70%; margin-bottom: 30%;"
+			>
+				<img class="loadingImage" src={sehasuLogo} alt="Loading..." width="150vw" />
+			</Cell>
 		{:then res}
 			<Cell
 				span={12}
@@ -225,5 +231,24 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+	}
+
+	.loadingImage {
+		animation: scaling 1s ease-in-out infinite;
+	}
+
+	@keyframes scaling {
+		0% {
+			transform: scale(1);
+			transform-origin: center center;
+		}
+		50% {
+			transform: scale(1.2);
+			transform-origin: center center;
+		}
+		100% {
+			transform: scale(1);
+			transform-origin: center center;
+		}
 	}
 </style>
