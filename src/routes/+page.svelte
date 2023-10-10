@@ -16,6 +16,8 @@
 
 	let open = false;
 
+	let sortMode = 0; // 0: desc, 1: asc, 2: view desc, 3: view asc
+
 	async function getStats() {
 		try {
 			const res = await fetch(import.meta.env.VITE_API_URL, {
@@ -58,6 +60,18 @@
 		return `${year}-${('00' + month.toString()).slice(-2)}-${('00' + day.toString()).slice(-2)} ${(
 			'00' + hours.toString()
 		).slice(-2)}:${('00' + minutes.toString()).slice(-2)}:00`;
+	}
+
+	function sortData(data: any, mode: number) {
+		if (mode === 0) {
+			return data.slice().reverse();
+		} else if (mode === 1) {
+			return data;
+		} else if (mode === 2) {
+			return data.slice().sort((a: any, b: any) => (a.viewCount < b.viewCount ? 1 : -1));
+		} else {
+			return data.slice().sort((a: any, b: any) => (a.viewCount < b.viewCount ? -1 : 1));
+		}
 	}
 </script>
 
@@ -139,8 +153,15 @@
 						></Button
 					>
 				</div>
+				<div>
+					<Button on:click={() => (sortMode = (sortMode + 1) % 4)}
+						><Icon class="material-symbols-outlined">sort</Icon><Label
+							>{$t(`sortMode.${sortMode}`)}</Label
+						></Button
+					>
+				</div>
 			</Cell>
-			{#each res.body.videos.reverse() as video}
+			{#each sortData(res.body.videos, sortMode) as video}
 				<Cell spanDevices={{ desktop: 3, tablet: 4, phone: 4 }}>
 					<div class="card-display">
 						<div class="card-container">
