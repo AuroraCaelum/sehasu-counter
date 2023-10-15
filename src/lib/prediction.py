@@ -22,7 +22,8 @@ print(line_fitter.predict([[goal]]))
 predictor = goal
 prediction = line_fitter.predict([[goal]])
 
-plt.figure(figsize=(10, 4))
+plt.figure(figsize=(11, 5))
+plt.ylim(600000, 1400000)  # y축 범위
 plt.plot(X, y, "o")  # 기록 데이터
 plt.plot(math.ceil(prediction[0]), predictor, "o")  # 예측 데이터
 # 예측량 주석
@@ -33,14 +34,14 @@ plt.annotate(
     ),
     xy=(prediction[0], predictor),
     xytext=(prediction[0], predictor + 40000),
-    ha="center",
+    ha="left",
 )
 # 기록 주석
 plt.annotate(
     format(goal, ","),
     xy=(prediction[0], predictor),
     xytext=(prediction[0], predictor - 60000),
-    ha="center",
+    ha="left",
 )
 
 placing = 100000
