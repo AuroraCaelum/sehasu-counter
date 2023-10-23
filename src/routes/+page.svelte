@@ -17,7 +17,7 @@
 
 	let open = false;
 
-	const stepSuccessDetails = [`${$t('step.scDetailPrefix')}03:40${$t('step.scDetailSuffix')}`];
+	const stepSuccessDetails = [`${$t('step.scDetailPrefix')}03:50${$t('step.scDetailSuffix')}`];
 	const stepEndDetails = ['#17'];
 
 	let sortMode = 0; // 0: desc, 1: asc, 2: view desc, 3: view asc
