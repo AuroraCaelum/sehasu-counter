@@ -8,6 +8,7 @@
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import IconButton from '@smui/icon-button';
 	import Button, { Label, Icon } from '@smui/button';
+	import Banner, { Label as BannerLabel } from '@smui/banner';
 	import Dialog, { Content as DialogContent } from '@smui/dialog';
 	import getUserLocale from 'get-user-locale';
 
@@ -15,6 +16,9 @@
 	$locale = userLocale.startsWith('ja') ? 'ja' : userLocale.startsWith('ko') ? 'ko' : 'en';
 
 	let open = false;
+
+	const stepSuccessDetails = [`${$t('step.scDetailPrefix')}00:00${$t('step.scDetailSuffix')}`];
+	const stepEndDetails = ['#17'];
 
 	let sortMode = 0; // 0: desc, 1: asc, 2: view desc, 3: view asc
 
@@ -81,6 +85,8 @@
 </svelte:head>
 
 <section>
+	
+
 	<Dialog
 		bind:open
 		sheet
@@ -141,8 +147,14 @@
 									{/if}</DataCell
 								>
 								<DataCell>{step.start}</DataCell>
-								<DataCell>{@html step.success}</DataCell>
-								<DataCell>{step.end}</DataCell>
+								<DataCell
+									><span title={stepSuccessDetails[step.number - 2]}>{@html step.success}</span
+									></DataCell
+								>
+								<DataCell
+									><span class="underline" title={stepEndDetails[step.number - 1]}>{step.end}</span
+									></DataCell
+								>
 							</Row>
 						{/each}
 					</Body>
@@ -271,5 +283,8 @@
 			transform: scale(1);
 			transform-origin: center center;
 		}
+	}
+	.underline {
+		border-bottom: 1px dotted black;
 	}
 </style>

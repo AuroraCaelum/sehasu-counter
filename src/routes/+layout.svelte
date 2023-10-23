@@ -1,6 +1,8 @@
 <script>
 	import { t, locale, locales } from '$lib/i18n/i18n';
 	import './styles.css';
+	import Button, { Label, Icon } from '@smui/button';
+	import Banner, { Label as BannerLabel } from '@smui/banner';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	import { MetaTags } from 'svelte-meta-tags';
@@ -34,6 +36,13 @@
 <!-- <meta property="og:title" content={$t('og.title')} />
 <meta property="og:description" content={$t('og.description')} /> -->
 <div class="app">
+	<Banner open centered mobileStacked content$style="max-width: max-content;">
+		<BannerLabel slot="label">
+			<!-- {$t('banner.content')} -->
+			{$t('banner.content.expectation')}
+		</BannerLabel>
+		<Button slot="actions">{$t('banner.button')}</Button>
+	</Banner>
 	<main>
 		<slot />
 	</main>
