@@ -38,8 +38,8 @@
 <div class="app">
 	<Banner open centered mobileStacked content$style="max-width: max-content;">
 		<BannerLabel slot="label">
-			<!-- {$t('banner.content')} -->
-			{$t('banner.content.expectation')}
+			{$t('banner.content')}
+			<!-- {$t('banner.content.expectation')} -->
 		</BannerLabel>
 		<Button slot="actions">{$t('banner.button')}</Button>
 	</Banner>

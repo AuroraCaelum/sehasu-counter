@@ -18,7 +18,7 @@
             "ko": "세하스 동영상 누적 조회수 <strong>120만회</strong>가 되면 세하스 테마송 제작!"
         },
         "start": "2023-09-01",
-        "success": "<span style='color: #be1400;'><strong>(2023-10-24)</strong></span>",
+        "success": "<span style='border-bottom: 1px dotted black;'>2023-10-24</span>",
         "end": ""
     }
 ]
