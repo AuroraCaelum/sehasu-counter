@@ -25,7 +25,7 @@ predictor = goal
 prediction = line_fitter.predict([[goal]])
 
 plt.figure(figsize=(11, 5))
-plt.ylim(600000, 1400000)  # y축 범위
+plt.ylim(600000, 1500000)  # y축 범위
 plt.plot(X, y, "o")  # 기록 데이터
 for i in successedDate:
     plt.plot(X[i], y[i], "o", color="red")  # 성공 데이터
