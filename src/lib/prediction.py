@@ -25,7 +25,8 @@ predictor = goal
 prediction = line_fitter.predict([[goal]])
 
 plt.figure(figsize=(11, 5))
-plt.ylim(600000, 1500000)  # y축 범위
+plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
+plt.xlim(0, len(df))  # x축 범위
 plt.plot(X, y, "o")  # 기록 데이터
 for i in successedDate:
     plt.plot(X[i], y[i], "o", color="red")  # 성공 데이터
@@ -53,19 +54,24 @@ for i in successedDate:
 # 예측기능 범위 끝
 
 placing = 100000
+sehasu_ep_start = 18
 for i in range(len(X)):
-    if i % 5 == 0:
+    if (i + 1) % 7 == 0:
         plt.annotate(
-            (startingDate + datetime.timedelta(days=int(X[i]))).strftime("%Y-%m-%d")
+            "(EP"
+            + str(sehasu_ep_start + int(((i + 1) / 7) - 1))
+            + ")\n"
+            + (startingDate + datetime.timedelta(days=int(X[i]))).strftime("%Y-%m-%d")
             + "\n"
             + str(format(y[i], ",")),
             xy=(X[i], y[i]),
             xytext=(X[i], y[i] + placing),
             ha="center",
+            weight="bold",
             arrowprops=dict(arrowstyle="->", color="black"),
         )
         if placing == 100000:
-            placing = -125000
+            placing = -160000
         else:
             placing = 100000
 # 예측기능 범위 시작
