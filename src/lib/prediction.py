@@ -24,7 +24,7 @@ print(line_fitter.predict([[goal]]))
 predictor = goal
 prediction = line_fitter.predict([[goal]])
 
-plt.figure(figsize=(11, 6))
+plt.figure(figsize=(11, 7))
 plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
 plt.xlim(0, len(df))  # x축 범위
 plt.plot(X, y, "o")  # 기록 데이터
@@ -71,7 +71,7 @@ for i in range(len(X)):
             arrowprops=dict(arrowstyle="->", color="black"),
         )
         if placing == 100000:
-            placing = -170000
+            placing = -200000
         else:
             placing = 100000
 # 예측기능 범위 시작
