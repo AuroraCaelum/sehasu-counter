@@ -1,4 +1,5 @@
 from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
@@ -14,10 +15,12 @@ successedDate = [80]
 X = df["date"]
 y = df["totalCount"]
 
-goal = 2000000
+goal = 2500000
 
-line_fitter = LinearRegression()
+line_fitter = DecisionTreeRegressor(criterion="squared_error")
 line_fitter.fit(y.values.reshape(-1, 1), X)
+# line_fitter = LinearRegression()
+# line_fitter.fit(y.values.reshape(-1, 1), X)
 
 print(line_fitter.predict([[goal]]))
 
@@ -57,9 +60,12 @@ placing = 100000
 sehasu_ep_start = 18
 for i in range(len(X)):
     if (i + 1) % 7 == 0:
+        curr = sehasu_ep_start + int(((i + 1) / 7) - 1)
+        if curr >= 38:
+            curr -= 1
         plt.annotate(
             "(EP"
-            + str(sehasu_ep_start + int(((i + 1) / 7) - 1))
+            + str(curr)
             + ")\n"
             + (startingDate + datetime.timedelta(days=int(X[i]))).strftime("%Y-%m-%d")
             + "\n"
@@ -71,7 +77,7 @@ for i in range(len(X)):
             arrowprops=dict(arrowstyle="->", color="black"),
         )
         if placing == 100000:
-            placing = -200000
+            placing = -250000
         else:
             placing = 100000
 # 예측기능 범위 시작
