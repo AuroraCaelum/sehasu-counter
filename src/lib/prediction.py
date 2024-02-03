@@ -15,9 +15,10 @@ successedDate = [80]
 X = df["date"]
 y = df["totalCount"]
 
-goal = 2500000
+goal = 3000000
 
-line_fitter = DecisionTreeRegressor(criterion="squared_error")
+# line_fitter = DecisionTreeRegressor(criterion="squared_error")
+line_fitter = LinearRegression()
 line_fitter.fit(y.values.reshape(-1, 1), X)
 # line_fitter = LinearRegression()
 # line_fitter.fit(y.values.reshape(-1, 1), X)
@@ -27,9 +28,11 @@ print(line_fitter.predict([[goal]]))
 predictor = goal
 prediction = line_fitter.predict([[goal]])
 
-plt.figure(figsize=(13, 7))
-plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
-plt.xlim(0, len(df))  # x축 범위
+plt.figure(figsize=(20, 7))
+# plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
+plt.ylim(600000, 3000000)  # y축 범위
+# plt.xlim(0, len(df))  # x축 범위
+plt.xlim(0, prediction)
 plt.plot(X, y, "o")  # 기록 데이터
 for i in successedDate:
     plt.plot(X[i], y[i], "o", color="red")  # 성공 데이터

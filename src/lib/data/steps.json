@@ -20,5 +20,16 @@
         "start": "2023-09-01",
         "success": "<span style='border-bottom: 1px dotted black;'>2023-10-24</span>",
         "end": ""
+    },
+    {
+        "number": 3,
+        "name": {
+            "en": "Determine the reward location shoot with a total of <strong>3 million</strong> views on Se-hasu video!",
+            "ja": "せーはす動画累計視聴数<strong>300万回</strong>再生でご褒美ロケ決定！",
+            "ko": "세하스 동영상 누적 조회수 <strong>300만회</strong>가 되면 보상 로케이션 촬영 결정!"
+        },
+        "start": "2024-02-03",
+        "success": "",
+        "end": ""
     }
 ]
