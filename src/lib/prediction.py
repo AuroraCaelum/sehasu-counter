@@ -66,6 +66,8 @@ for i in range(len(X)):
         curr = sehasu_ep_start + int(((i + 1) / 7) - 1)
         if curr >= 38:
             curr -= 1
+            if curr == 37:
+                continue
         plt.annotate(
             "(EP"
             + str(curr)
