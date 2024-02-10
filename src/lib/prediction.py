@@ -82,7 +82,7 @@ for i in range(len(X)):
             arrowprops=dict(arrowstyle="->", color="black"),
         )
         if placing == 100000:
-            placing = -250000
+            placing = -280000
         else:
             placing = 100000
 # 예측기능 범위 시작
