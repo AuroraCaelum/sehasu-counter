@@ -79,7 +79,7 @@ export default {
         "footer.disclaimer": '<br><small>세-노데! 하스노소라!(せーので！はすのそら！)는 <b><small>©プロジェクトラブライブ！蓮ノ空女学院スクールアイドルクラブ</small></b>와 그 권리사인 SUNRISE, Bandai Namco Music Live Inc., ODD No.의 브랜드입니다.<br />이 사이트는 팬메이드입니다.</small>',
         "og.title": "세하스 카운터",
         "og.description": "하나 둘에! 하스노소라! 누적 조회수 카운터",
-        "banner.content": "2번째 스탭이 KST기준 2023년 10월 24일 03시 50분 경에 달성되었습니다! 축하합니다!",
+        "banner.content": "3번째 스탭이 KST기준 2024년 03월 22일에 달성되었습니다! 축하합니다!",
         "banner.content.expectation": "2번째 스탭이 KST기준 2023년 10월 24일 03시 10분 경에 달성될 것으로 예상됩니다.",
         "banner.button": "확인",
     }
