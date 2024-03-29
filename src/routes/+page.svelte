@@ -21,7 +21,7 @@
 		`${$t('step.scDetailPrefix')}03:50${$t('step.scDetailSuffix')}`,
 		`${$t('step.scDetailPrefix')}12:00${$t('step.scDetailSuffix')}`
 	];
-	const stepEndDetails = ['#17'];
+	const stepEndDetails = ['#17', '#50'];
 
 	let sortMode = 0; // 0: desc, 1: asc, 2: view desc, 3: view asc
 
