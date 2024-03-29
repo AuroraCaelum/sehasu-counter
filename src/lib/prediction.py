@@ -30,7 +30,7 @@ prediction = line_fitter.predict([[goal]])
 
 plt.figure(figsize=(20, 7))
 # plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
-plt.ylim(600000, 3000000)  # y축 범위
+plt.ylim(600000, 3500000)  # y축 범위
 # plt.xlim(0, len(df))  # x축 범위
 plt.xlim(0, prediction)
 plt.plot(X, y, "o")  # 기록 데이터
@@ -38,24 +38,24 @@ for i in successedDate:
     plt.plot(X[i], y[i], "o", color="red")  # 성공 데이터
 # 예측기능 범위 시작
 
-plt.plot(math.ceil(prediction[0]), predictor, "o")  # 예측 데이터
+# plt.plot(math.ceil(prediction[0]), predictor, "o")  # 예측 데이터
 # 예측량 주석
-plt.annotate(
-    "Expectation: "
-    + (startingDate + datetime.timedelta(days=math.ceil(prediction[0]))).strftime(
-        "%Y-%m-%d"
-    ),
-    xy=(prediction[0], predictor),
-    xytext=(prediction[0], predictor + 40000),
-    ha="left",
-)
+# plt.annotate(
+#     "Expectation: "
+#     + (startingDate + datetime.timedelta(days=math.ceil(prediction[0]))).strftime(
+#         "%Y-%m-%d"
+#     ),
+#     xy=(prediction[0], predictor),
+#     xytext=(prediction[0], predictor + 40000),
+#     ha="left",
+# )
 # 기록 주석
-plt.annotate(
-    format(goal, ","),
-    xy=(prediction[0], predictor),
-    xytext=(prediction[0], predictor - 60000),
-    ha="left",
-)
+# plt.annotate(
+#     format(goal, ","),
+#     xy=(prediction[0], predictor),
+#     xytext=(prediction[0], predictor - 60000),
+#     ha="left",
+# )
 
 # 예측기능 범위 끝
 
@@ -86,7 +86,7 @@ for i in range(len(X)):
         else:
             placing = 100000
 # 예측기능 범위 시작
-plt.plot([X[0], math.ceil(prediction[0])], [y[0], predictor])  # 증가량 예측 직선
+# plt.plot([X[0], math.ceil(prediction[0])], [y[0], predictor])  # 증가량 예측 직선
 # 예측기능 범위 끝
 
 # plt.plot(line_fitter.predict(y.values.reshape(-1, 1)), y, "-")
