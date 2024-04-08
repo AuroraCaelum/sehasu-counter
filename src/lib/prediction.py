@@ -10,7 +10,7 @@ startingDate = datetime.datetime(2023, 8, 5)
 URL = "https://sehasu-counter.s3.ap-northeast-2.amazonaws.com/dailyCounts.csv"
 df = pd.read_csv(URL)
 
-successedDate = [80]
+successedDate = [80, 230]
 
 X = df["date"]
 y = df["totalCount"]
@@ -68,6 +68,10 @@ for i in range(len(X)):
             curr -= 1
             if curr == 37:
                 continue
+            if curr >= 51:
+                curr -= 1
+                if curr == 50:
+                    continue
         plt.annotate(
             "(EP"
             + str(curr)
@@ -82,7 +86,7 @@ for i in range(len(X)):
             arrowprops=dict(arrowstyle="->", color="black"),
         )
         if placing == 100000:
-            placing = -280000
+            placing = -320000
         else:
             placing = 100000
 # 예측기능 범위 시작
