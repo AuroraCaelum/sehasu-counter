@@ -32,7 +32,8 @@ plt.figure(figsize=(20, 7))
 # plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
 plt.ylim(600000, 3500000)  # y축 범위
 # plt.xlim(0, len(df))  # x축 범위
-plt.xlim(0, prediction)
+# plt.xlim(0, prediction) # Prediction 작동시
+plt.xlim(0, 300)
 plt.plot(X, y, "o")  # 기록 데이터
 for i in successedDate:
     plt.plot(X[i], y[i], "o", color="red")  # 성공 데이터
@@ -64,13 +65,24 @@ sehasu_ep_start = 18
 for i in range(len(X)):
     if (i + 1) % 7 == 0:
         curr = sehasu_ep_start + int(((i + 1) / 7) - 1)
+        # postponed = [(38, 1), (51, 2)]
+        # skip = False
+        # for i in range(len(postponed)):
+        #     if postponed[i][0] >= curr:
+        #         curr -= postponed[i][1]
+        #         curr -= i
+        #         if curr == postponed[i][0] - postponed[i][1]:
+        #             skip = True
+        #         break
+        # if skip:
+        #     continue
         if curr >= 38:
             curr -= 1
             if curr == 37:
                 continue
             if curr >= 51:
-                curr -= 1
-                if curr == 50:
+                curr -= 2
+                if curr == 49 or curr == 50:
                     continue
         plt.annotate(
             "(EP"
