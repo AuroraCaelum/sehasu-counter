@@ -30,7 +30,7 @@ prediction = line_fitter.predict([[goal]])
 
 plt.figure(figsize=(20, 7))
 # plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
-plt.ylim(600000, 3500000)  # y축 범위
+plt.ylim(600000, 4000000)  # y축 범위
 # plt.xlim(0, len(df))  # x축 범위
 # plt.xlim(0, prediction) # Prediction 작동시
 plt.xlim(0, 300)
@@ -84,6 +84,14 @@ for i in range(len(X)):
                 curr -= 2
                 if curr == 49 or curr == 50:
                     continue
+                if curr >= 52:
+                    curr -= 1
+                    if curr == 51:
+                        continue
+                    if curr >= 53:
+                        curr -= 1
+                        if curr == 52:
+                            continue
         plt.annotate(
             "(EP"
             + str(curr)
