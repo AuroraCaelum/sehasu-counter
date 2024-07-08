@@ -28,12 +28,12 @@ print(line_fitter.predict([[goal]]))
 predictor = goal
 prediction = line_fitter.predict([[goal]])
 
-plt.figure(figsize=(20, 7))
+plt.figure(figsize=(20, 8))
 # plt.ylim(600000, y[len(df) - 1] + 100000)  # y축 범위
-plt.ylim(600000, 4000000)  # y축 범위
+plt.ylim(600000, 4500000)  # y축 범위
 # plt.xlim(0, len(df))  # x축 범위
 # plt.xlim(0, prediction) # Prediction 작동시
-plt.xlim(0, 300)
+plt.xlim(0, 350)
 plt.plot(X, y, "o")  # 기록 데이터
 for i in successedDate:
     plt.plot(X[i], y[i], "o", color="red")  # 성공 데이터
@@ -92,6 +92,14 @@ for i in range(len(X)):
                         curr -= 1
                         if curr == 52:
                             continue
+                        if curr >= 54:
+                            curr -= 1
+                            if curr == 53:
+                                continue
+                            if curr >= 55:
+                                curr -= 1
+                                if curr == 54:
+                                    continue
         plt.annotate(
             "(EP"
             + str(curr)
